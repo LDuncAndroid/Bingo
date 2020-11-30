@@ -23,7 +23,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
+    // TODO remove - temporary to test build changes
+    lintOptions {
+        checkReleaseBuilds false
+        //If you want to continue even if errors found use following line
+        abortOnError false
+    }
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -31,16 +36,6 @@ android {
 
     androidExtensions {
         experimental = true
-    }
-
-    sourceSets {
-        debug.java.srcDirs += 'build/generated/source/proto/debug/java'
-        debug.java.srcDirs += 'build/generated/source/proto/debug/grpc'
-        debug.java.srcDirs += 'build/generated/source/proto/debug/javalite'
-        release.java.srcDirs += 'build/generated/source/proto/release/java'
-        release.java.srcDirs += 'build/generated/source/proto/release/grpc'
-        release.java.srcDirs += 'build/generated/source/proto/release/javalite'
-        main.proto.srcDirs += 'src/main/proto'
     }
 }
 
